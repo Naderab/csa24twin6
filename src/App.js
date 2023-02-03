@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Test from './test';
 
 function App() {
   function hoisting(){
@@ -48,13 +49,83 @@ const newClasse = {...classe,email:"4twin@esprit.tn"}
 console.log(newClasse)
 const newUsers = [...users,{name:'spreadTest',age:50}]
 console.log(newUsers)
+const calculateMarks = (students) =>
+ students.map((stu) => {
+//  if (stu.marks < 50) {
+//  stu.marks += 15;
+//  }
+stu.marks < 50 && (stu.marks+=15)
+ return stu;
+ }).filter(stu => stu.marks > 50).reduce((acc, curr) => acc + 
+curr.marks, 0);
+const students = [{ name: 'John', id: 123, marks: 98 },
+{ name: 'Baba', id: 101, marks: 23 },
+{ name: 'John', id: 200, marks: 45 },
+{ name: 'Wick', id: 115, marks: 75 },];
+console.log(calculateMarks(students));
+// Output : 233
+let findLongestWord = (tab) => tab.reduce((a, b) => { return a.length < b.length ? {word:b,length:b.length}: {word:a,length:a.length}} );
+console.log(findLongestWord(['test', 'test1', 'test1234','test12']));
+const countArraysElements = (arraysInput) =>
+ arraysInput.flat().reduce((accumulator, currentValue) => {
+  console.log(accumulator)
+  console.log(currentValue)
+
+
+ if (accumulator[currentValue]) {
+  //console.log(accumulator)
+  //console.log(currentValue)
+ accumulator[currentValue] += 1;
+ } else {
+//console.log(currentValue)
+ accumulator[currentValue] = 1;
+ }
+ return accumulator;
+ }, {});
+const input = [
+ ["a", ["b", "c"]],
+ ["c", "d", "f"],
+ ["d", "f", "g"],
+];
+console.log(input.flat(2));
+//console.log(countArraysElements(input));
+const Tab = [
+  { salle: "21", étage: "2" , bloc :"A"},
+  { salle: "23", étage: "2" , bloc :"B"},
+  { salle: "26", étage: "2" , bloc :"C"},
+ ];
+ console.log(Tab)
+ //Tab.push( { salle: "81", étage: "8" , bloc :"B"});
+ Tab.unshift( { salle: "51", étage: "5" , bloc :"K"});
+ console.log(Tab)
+ let ID = 1;
+ const newData = Tab.map((object, index) => ({ ID: ID++,...object}) )
+ console.log(newData)
+ let name2 = "Jane doe";
+ function getEtudiant(n){
+  return n;
+ }
+ function testClick (){
+  alert("Bonjour 4twin6")
+ }
   return (
+    // <Fragement>
+    <>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        <p onClick={testClick}>
+        {name2}
+        {classe.niveau} {classe.nbEtudiant}
           Edit <code>4twin6</code> and save to reload.
         </p>
+        Bonjour {getEtudiant("test")}
+
+        {
+          Tab.map((obj)=>{
+            return <div><p style={{color:'red'}}>{obj.bloc}</p><p>{obj.salle}</p><p>{obj.étage}</p></div>
+          })
+        }
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -63,8 +134,11 @@ console.log(newUsers)
         >
           Learn React
         </a>
+        <Test variableprop={name2} objprop={classe} />
       </header>
     </div>
+    </>
+    // </Fragement>
   );
 }
 
