@@ -1,10 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import Test from './test';
-import ClassComponent from './Components/ClassComponent';
-import Mounting from './Components/Mounting';
-import Updating from './Components/Updating';
-import UnMounting from './Components/Unmouting';
+
+import { Update } from './cycledeVie/Update';
+import { WithoutConst } from './State/WithoutConst';
+import { WithConst } from './State/WithConst';
+import Methods from './cycledeVie/Methods';
+import Unmouting from './cycledeVie/Unmounting';
+import Mouting from './cycledeVie/Mounting';
+import Products from './Components/Products';
 
 function App() {
 //   function hoisting(){
@@ -144,10 +148,11 @@ function App() {
     {/* <Product test='hello'/> */}
     {/* <Mouting test="hello"/> */}
     {/* <Unmouting/> */}
-    <Update test='hello'/>
+    {/* <Update test='hello'/> */}
     {/* <Methods/> */}
     {/* <WithConst/> */}
     {/* <WithoutConst/> */}
+    <Products/>
     </>
     // </Fragement>
   );
