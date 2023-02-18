@@ -9,8 +9,14 @@ import Methods from './cycledeVie/Methods';
 import Unmouting from './cycledeVie/Unmounting';
 import Mouting from './cycledeVie/Mounting';
 import Products from './Components/Products';
+import FunctionalComponent from './cycledeVie/components/FunctionalComponent';
+import useWindowWidth from './Hooks/useWindowWidth';
+import useIsOnline from './Hooks/IsOnline';
 
 function App() {
+  const {width, height}= useWindowWidth();
+  const isOnline= useIsOnline();
+  console.log(isOnline)
 //   function hoisting(){
 //     console.log(a)
 //     var a=10;
@@ -152,7 +158,12 @@ function App() {
     {/* <Methods/> */}
     {/* <WithConst/> */}
     {/* <WithoutConst/> */}
-    <Products/>
+    {/* <Products/> */}
+    <h1>Online: {""+isOnline+""}</h1>
+    <FunctionalComponent title="Functional Component"/><br></br>
+    {width}<br></br>
+    {height}<br></br>
+    
     </>
     // </Fragement>
   );

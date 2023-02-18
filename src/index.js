@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ThemeContext from './cycledeVie/components/context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+  <ThemeContext.Provider value={{color:'red',background:'black'}}>
     <App />
+  </ThemeContext.Provider>
   </React.StrictMode>
 );
 
